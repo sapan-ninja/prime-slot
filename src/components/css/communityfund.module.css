@@ -1,0 +1,42 @@
+.communityContainer {
+  background-color: #ef127c;
+  width: 197px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(239, 18, 124, 0.7);
+}
+.timeSolDiv {
+
+  width: 199px;
+  border: 3px solid #ef127c;
+  padding: 0%;
+  border-radius: 12px;
+
+}
+
+.communityContainer2 {
+  width: 197px;
+  display: flex;
+  padding-left:10px ;
+  padding-right:13px ;
+  padding-top:13px;
+}
+.solLogo {
+  width: 28px;
+  height: 28px;
+}
+.time {
+  color: #ef127c;
+  font-weight: 600;
+  text-align: center;
+}
+.timeFormat {
+  font-weight: 700;
+  color: white;
+  font-size: 14px;
+  text-align: center;
+}
+.timeColon {
+  color: #ef127c;
+  font-weight: 600;
+  text-align: center;
+}
