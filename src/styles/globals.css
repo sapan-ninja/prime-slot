@@ -73,6 +73,17 @@
   }
 }
 
+a {
+  text-decoration: none;
+  font-size: 14px !important;
+}
+.nav-link {
+  color: white !important;
+}
+.mobileMenu {
+  z-index: 100;
+  position: absolute;
+}
 * {
   box-sizing: border-box;
   padding: 0;
@@ -114,10 +125,14 @@ a {
   background-color: black;
 }
 .whiteBorder {
-  border-top: 1px solid white;
+  border-bottom: 1px solid white;
 }
 .mainContent {
   background: #0a042a;
+  height: 100vh;
+}
+.fs14 {
+  font-size: 14px;
 }
 .pinkTextColor {
   color: #ef127c;

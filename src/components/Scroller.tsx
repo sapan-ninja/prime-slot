@@ -45,9 +45,9 @@ function Scroller() {
     return (
 
         <>
-            <div className="row mt-5 p-0">
+            {/* <div className="row mt-5 p-0">
            
-                {/* <div className="col-12 d-flex justify-content-center">
+                <div className="col-12 d-flex justify-content-center">
                     <span className="line">
                         <h2>
 
@@ -56,63 +56,59 @@ function Scroller() {
 
                         </h2>
                     </span>
-                </div> */}
-            </div>
-            <div className="row mt-5">
-                <div className="row d-flex justify-content-center">
-                    <div className="slots">
+                </div>
+            </div> */}
+            <div className="slots mt-5">
 
-                        <div className="col text-center">
+                <div className="col text-center">
 
-                            <div className="slot">
-                                <section>
-                                    <div className="container" ref={slotRef[0]}>
-                                        {fruits.map((fruit, i) => (
-                                            <div key={i}>
-                                                <span>{fruit}</span>
-                                            </div>
-                                        ))}
+                    <div className="slot">
+                        <section>
+                            <div className="container" ref={slotRef[0]}>
+                                {fruits.map((fruit, i) => (
+                                    <div key={i}>
+                                        <span>{fruit}</span>
                                     </div>
-                                </section>
+                                ))}
                             </div>
-                            <div className="slot">
-                                <section>
-                                    <div className="container" ref={slotRef[1]}>
-                                        {fruits.map((fruit,i )=> (
-                                            <div key={i}>
-                                                <span>{fruit}</span>
-                                            </div>
-                                        ))}
+                        </section>
+                    </div>
+                    <div className="slot">
+                        <section>
+                            <div className="container" ref={slotRef[1]}>
+                                {fruits.map((fruit, i) => (
+                                    <div key={i}>
+                                        <span>{fruit}</span>
                                     </div>
-                                </section>
+                                ))}
                             </div>
-                            <div className="slot">
-                                <section>
-                                    <div className="container" ref={slotRef[2]}>
-                                        {fruits.map((fruit,i )=> (
-                                            <div key={i}>
-                                                <span>{fruit}</span>
-                                            </div>
-                                        ))}
+                        </section>
+                    </div>
+                    <div className="slot">
+                        <section>
+                            <div className="container" ref={slotRef[2]}>
+                                {fruits.map((fruit, i) => (
+                                    <div key={i}>
+                                        <span>{fruit}</span>
                                     </div>
-                                </section>
+                                ))}
                             </div>
-                        </div>
-                        <div className="col text-center">
-                            <button
-
-                                className={!rolling ? "roll rolling" : "roll"}
-                                // onClick={!rolling && roll}
-                                onClick={roll}
-
-                            >
-                                Spin
-                            </button>
-                        </div>
-
-
+                        </section>
                     </div>
                 </div>
+                <div className="col text-center">
+                    <button
+
+                        className={!rolling ? "roll rolling" : "roll"}
+                        // onClick={!rolling && roll}
+                        onClick={roll}
+
+                    >
+                        Spin
+                    </button>
+                </div>
+
+
             </div>
 
 

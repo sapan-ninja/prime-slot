@@ -1,10 +1,13 @@
 import React from 'react'
 import styles from './css/communityfund.module.css'
-
+import useWindowSize from './utility/GetWindowSize'
 export default function CommunityFunds() {
+
+    const size = useWindowSize()
+    console.log("🚀 ~ CommunityFunds ~ size", size)
     return (
         <>
-
+            {size?.width > 600 ?
                 <div className="row d-flex justify-content-center">
                     <h5 className='text-center text-white fw-bold'>Community funds</h5>
 
@@ -90,7 +93,15 @@ export default function CommunityFunds() {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> :
+                <>
+                    <div className="row">
+                        <div className="col">
+                            <p className='text-light fs14 text-center'>Distributing <span className="pinkTextColor">8 SOL</span> in <span className="pinkTextColor">24d:13h:08m:02s</span> </p>
+                        </div>
+                    </div>
+
+                </>}
 
 
 
