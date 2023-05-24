@@ -9,7 +9,7 @@ export default function Sidebar() {
     useEffect(() => {
 
         if (size?.width > 600) {
-            
+
             setShow(true)
         }
         return () => {
@@ -43,8 +43,8 @@ export default function Sidebar() {
                 </div>
                 <div className="row flex-nowrap">
                     {show ?
-                        <div className={`col-8 col-md-1 col-lg-1 col-xl-1 col-sm-2 px-sm-0  px-0 blackColor mobileMenu`}>
-                            <div className="d-flex flex-column align-items-start align-items-sm-center px-3 px-md-2 pt-2 text-white min-vh-100">
+                        <div className={`col-8 col-md-1 col-lg-1 col-xl-1 col-sm-2 px-sm-0  px-0 blackColor mobileMenu`} style={{ height: '100%' }}>
+                            <div className="d-flex flex-column align-items-start align-items-sm-center px-3 px-md-2 pt-2 text-white " >
                                 <a href="/" className="d-flex align-items-center pb-3  text-white text-decoration-none">
                                     <span className="fs-5 d-none d-sm-inline">
                                         <img src="/assets/navitems/icon.svg" alt="icon" />
@@ -166,7 +166,7 @@ export default function Sidebar() {
                                 </ul> */}
                             </div>
                         </div> : ''}
-                    <div className="col py-3 mainContent px-0">
+                    <div className="col-12 py-3 mainContent px-0" style={{ height: '100vh' }}>
                         <LandingPage />
                         {/* <h3>Left Sidebar with Submenus</h3>
                         <p className="lead">

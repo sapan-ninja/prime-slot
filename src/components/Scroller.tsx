@@ -2,6 +2,7 @@ import { useRef, useState } from 'react';
 
 function Scroller() {
     const [div, setDiv] = useState<number[]>([])
+    const [solAmount, setSolAmount] = useState(0.05);
     const [fruit1, setFruit1] = useState("diamond");
     const [fruit2, setFruit2] = useState("mouse");
     const [fruit3, setFruit3] = useState("remote");
@@ -16,7 +17,7 @@ function Scroller() {
         setRolling(true);
         setTimeout(() => {
             setRolling(false);
-        }, 700);
+        }, 10000);
 
         // looping through all 3 slots to start rolling
         slotRef.forEach((slot, i) => {
@@ -39,6 +40,7 @@ function Scroller() {
     // this will create a rolling effect and return random selected option
     const triggerSlotRotation = (ref: any) => {
         function setTop(top: any) {
+            console.log("🚀 ~ setTop ~ top", top)
             ref.style.top = `${top}px`;
         }
         let options = ref.children;
@@ -56,21 +58,22 @@ function Scroller() {
         ab.push(randomOption)
         setDiv(ab)
         setTop(-choosenOption.offsetTop + 2);
-        console.log("🚀 ~ triggerSlotRotation ~ choosenOption.offsetTop ", choosenOption.offsetTop)
-        console.log("🚀 ~ triggerSlotRotation ~ choosenOption.offsetTop +2 ", choosenOption.offsetTop + 2)
         return fruits[randomOption];
     };
+    const amount = [
+        0.05, 0.1, 0.25, 0.5, 1, 2
+    ]
 
     return (
 
         <>
-            <div className="row mt-5 p-0">
+            <div className="row mt-0 mt-md-5 p-0">
 
                 <div className="col-12 d-flex justify-content-center">
-                    <span className="line w-25">
+                    <span className="line    ">
                         <h2>
 
-                            <img src="/assets/catHead.svg" alt="cat" />
+                            <img src="/assets/catHead.svg" className="img-fluid" alt="cat" />
                             <div className="col primeSlotText">
                                 <p>Primes slot</p>
                                 <p className="pinkTextColor">Spin and win your prize</p>
@@ -82,20 +85,20 @@ function Scroller() {
                 </div>
             </div>
 
-            <div className="slots  ">
+            <div className="slots">
                 <div className="row d-flex justify-content-center">
-                    
-                    <div className="col-5 text-center slotsDiv">
-                    <div className="handle">
+
+                    <div className="col-10 col-md-5 text-center slotsDiv">
+                        <div className="handle">
                             <img src="/assets/items/handle.svg" alt="handle" />
-                        </div>    
+                        </div>
                         <div className="slot">
                             <section className=''>
                                 <div className="container p-0 myImgContainer " ref={slotRef[0]}>
                                     {fruits.map((fruit, i) => (
-                                        <div key={i}>
+                                        <div key={i} className="h-50">
                                             <span className="myImgSpan">
-                                                <img src={`/assets/items/${fruit}.svg`} width="80" height="80" alt={fruit} />
+                                                <img src={`/assets/items/${fruit}.svg`} className='itemsImg'  alt={fruit} />
                                             </span>
                                         </div>
                                     ))}
@@ -103,12 +106,12 @@ function Scroller() {
                             </section>
                         </div>
                         <div className="slot">
-                            <section className=''>
+                            <section className=' '>
                                 <div className="container p-0 myImgContainer" ref={slotRef[1]}>
                                     {fruits.map((fruit, i) => (
                                         <div key={i}>
                                             <span>
-                                                <img src={`/assets/items/${fruit}.svg`} width="80" height="80" alt={fruit} />
+                                                <img src={`/assets/items/${fruit}.svg`} className='itemsImg'  alt={fruit} />
                                             </span>
                                         </div>
                                     ))}
@@ -121,7 +124,7 @@ function Scroller() {
                                     {fruits.map((fruit, i) => (
                                         <div key={i}>
                                             <span className='myImgSpan'>
-                                                <img src={`/assets/items/${fruit}.svg`} width="80" height="80" alt={fruit} />
+                                                <img src={`/assets/items/${fruit}.svg`} className='itemsImg'  alt={fruit} />
                                             </span>
                                         </div>
                                     ))}
@@ -134,7 +137,7 @@ function Scroller() {
                                     {fruits.map((fruit, i) => (
                                         <div key={i}>
                                             <span>
-                                                <img src={`/assets/items/${fruit}.svg`} width="80" height="80" alt={fruit} />
+                                                <img src={`/assets/items/${fruit}.svg`} className='itemsImg'  alt={fruit} />
                                             </span>
                                         </div>
                                     ))}
@@ -147,7 +150,7 @@ function Scroller() {
                                     {fruits.map((fruit, i) => (
                                         <div key={i} className={i == 1 ? 'blurImg' : ''}>
                                             <span>
-                                                <img src={`/assets/items/${fruit}.svg`} width="80" height="80" alt={fruit} />
+                                                <img src={`/assets/items/${fruit}.svg`} className='itemsImg'  alt={fruit} />
                                             </span>
                                         </div>
                                     ))}
@@ -157,6 +160,22 @@ function Scroller() {
                     </div>
                 </div>
 
+                <div className="row d-flex justify-content-center mt-1 mb-2 g-2">
+                    {amount.map((e) => {
+                        return (
+                            <div className={`col-4 amountBox ${solAmount === e ? 'amountBoxSelected' : ''}`} onClick={() => setSolAmount(e)}>
+                                <div className="col-12 text-center pt-2 pt-md-2">
+                                    <img src="/assets/sol.svg" alt="sol" className='solImg' />
+                                </div>
+                                <div className="col-12 text-center pt-1 pt-md-1  fw-bold">
+
+                                    {e}
+                                </div>
+                            </div>
+                        )
+                    })}
+
+                </div>
                 <div className="col text-center">
                     <button
 
@@ -171,6 +190,7 @@ function Scroller() {
 
 
             </div>
+            {console.log("aaa", solAmount)}
 
 
         </>
