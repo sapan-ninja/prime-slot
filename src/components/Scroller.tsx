@@ -45,10 +45,10 @@ function Scroller() {
     return (
 
         <>
-            {/* <div className="row mt-5 p-0">
+            <div className="row mt-5 p-0">
            
                 <div className="col-12 d-flex justify-content-center">
-                    <span className="line">
+                    <span className="line w-25">
                         <h2>
 
                                 <img src="/assets/catHead.svg" alt="cat" />
@@ -57,7 +57,7 @@ function Scroller() {
                         </h2>
                     </span>
                 </div>
-            </div> */}
+            </div>
             <div className="slots mt-5">
 
                 <div className="col text-center">

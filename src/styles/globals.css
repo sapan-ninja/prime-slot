@@ -218,9 +218,12 @@ section {
   font-size: 15px;
   text-align: center;
   /* border-bottom: 1px solid #ef127c; */
-  border: 1px solid #ef127c;
+  border: 3px solid #ef127c;
   border-bottom: none;
   position: relative;
+  border-radius: 16px;
+  border-bottom-left-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
 }
 .line h2 img {
   background-color: #0a042a;
