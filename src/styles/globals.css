@@ -150,7 +150,7 @@ a {
   right: 10px;
 }
 .primeSlotText p:first-child {
-  font-size: 35px;
+  font-size: 28px;
   color: #ffffff;
   text-shadow: 0px 0px 5px rgba(141, 10, 244, 0.72);
   /* font-family: 'Garet'; */
@@ -159,8 +159,8 @@ a {
 .slot {
   position: relative;
   display: inline-block;
-  height: 160px;
-  width: 100px;
+  height: 140px;
+  width: 90px;
   background: #1a0f3f;
   margin: 2px;
   overflow: hidden;
@@ -170,13 +170,31 @@ a {
 .slotsDiv {
   border: 8px solid #ef127c;
   border-radius: 30px;
-  height: auto;
+  width: max-content !important;
+  position: relative;
 }
 .handle {
   position: absolute;
-  right: 25.5%;
-  bottom: 25%;
+  right: -13%;
+  top: -50%;
+
 }
+.handleAnimation{
+  position: absolute;
+  right: -13%;
+  top: -50%;
+  animation: rotateAnimation 1s 1 alternate;
+
+}
+@keyframes rotateAnimation {
+  0% {
+    transform: rotateX(90deg);
+  }
+  100% {
+    transform: rotateX(0deg);
+  }
+}
+
 .amountBox {
   cursor: pointer;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
@@ -198,10 +216,10 @@ a {
 } */
 
 section {
-  margin-top: -40px;
-  margin-bottom: -40px;
+  margin-top: 0px;
+  /* margin-bottom: -40px; */
   position: absolute;
-  width: 100px;
+  width: 90px;
   height: 230px;
   overflow: hidden;
   background-color: transparent;
@@ -214,27 +232,25 @@ section {
   cursor: default;
 }
 .itemsImg {
-  width: 80px;
-  height: 80px;
+  width: 70px;
+  height: 70px;
 }
 .container {
   position: absolute;
   top: 2px;
   width: 100%;
-  transition: top ease-in-out 0.3s;
+  transition: top 0.6s ease-in-out 0.6s;
   text-align: center;
 }
 
 .roll {
   width: 215px;
   cursor: pointer;
-  background-color: transparent;
+  background-color: #ef127c;
   color: white;
+  font-weight: 500;
   padding: 10px;
-  text-align: center;
-  font-size: 20px;
-  border-radius: 20px;
-  border: 3px solid rgb(255, 255, 255);
+  border-radius: 12px;
 }
 
 .rolling {
@@ -284,10 +300,20 @@ section {
   background-color: #0a042a;
   color: white;
   position: relative;
-  top: -56px;
+  top: -36px;
   padding: 0 10px;
 }
 
+.myWalletBtn{
+  background-color: #ef127c;
+  border-radius: 14px;
+}
+.myWalletBtn:not([disabled]):hover{
+  background-color: #ef127c;
+}
+.myWalletBtn i{
+  display: none !important;
+}
 /* media queries  */
 
 /* Extra small devices (phones, 600px and down) */
@@ -322,7 +348,7 @@ section {
 
   .amountBox {
     height: 80px;
-    width: 90px !important;
+    width: 24% !important;
   }
   .handle {
     display: none;
@@ -353,6 +379,9 @@ section {
 }
 @media only screen and (min-width: 1920px) {
   /* For desktop: */
+  .line{
+    width: 13%;
+  }
 }
 
 @media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
