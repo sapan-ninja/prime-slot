@@ -12,6 +12,9 @@ export default function Sidebar() {
 
             setShow(true)
         }
+        else{
+            setShow(false)
+        }
         return () => {
 
         }
@@ -51,8 +54,8 @@ export default function Sidebar() {
                                     </span>
                                 </a>
                                 <ul className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-start align-items-sm-center " id="menu">
-                                    <li className="nav-item ">
-                                        <a href="#" className="nav-link align-middle px-0 ">
+                                    <li className="nav-item " >
+                                        <p className="nav-link align-middle px-0 ">
                                             <span className="d-none d-sm-inline">
                                                 <img src="/assets/navitems/wallet.svg" className='' alt="wallet" />
                                             </span>
@@ -62,7 +65,7 @@ export default function Sidebar() {
                                                     <img src="/assets/navitems/connectWallet.svg" className='' alt="wallet" />
                                                 </span>
                                                 Connect Wallet</span>
-                                        </a>
+                                        </p>
                                     </li>
                                     <li className="  whiteBorder w-100 mt-2 text-md-center">
                                         <a href="#" className="nav-link align-middle px-0  my-sm-0">

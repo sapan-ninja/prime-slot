@@ -4,21 +4,56 @@
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(239, 18, 124, 0.7);
 }
-.timeSolDiv {
+.communityRow {
+  position: relative;
+}
+.walletFund {
+  position: absolute;
+}
+.line {
+  display: block;
+  margin: 25px;
+  margin-bottom: -10px;
+  width: max-content;
 
+  float: right;
+}
+.line h2 span {
+  background-color: #0a042a;
+  color: white;
+  position: relative;
+  top: -13px;
+  padding: 0 10px;
+  font-size: 14px !important;
+}
+
+.line p {
+  font-size: 18px !important;
+}
+.line h2 {
+  padding-left: 30px;
+  padding-right: 30px;
+  height: max-content;
+  font-size: 14px;
+  text-align: center;
+  /* border-bottom: 1px solid #ef127c; */
+  border: 3px solid #ef127c;
+  position: relative;
+  border-radius: 16px;
+}
+.timeSolDiv {
   width: 199px;
   border: 3px solid #ef127c;
   padding: 0%;
   border-radius: 12px;
-
 }
 
 .communityContainer2 {
   width: 197px;
   display: flex;
-  padding-left:10px ;
-  padding-right:13px ;
-  padding-top:13px;
+  padding-left: 10px;
+  padding-right: 13px;
+  padding-top: 13px;
 }
 .solLogo {
   width: 28px;
@@ -39,4 +74,34 @@
   color: #ef127c;
   font-weight: 600;
   text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .walletFund {
+    position: unset;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+  }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 1023px) {
+ .communityRow{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  
+ }
+
+.timeSolDiv{
+  order: 1;
+  justify-content: center;
+  
+}
+.walletFund{
+  position: unset;
+  order: 2;
+  display: flex;
+  justify-content: center;
+}
 }

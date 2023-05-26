@@ -4,7 +4,7 @@ import { useWallet } from '@solana/wallet-adapter-react'
 import { ToastContainer, toast } from 'react-toastify';
 
 function Scroller() {
-    const { publicKey } = useWallet()
+    const { publicKey ,disconnect} = useWallet()
 
     const [div, setDiv] = useState<number[]>([])
     const [solAmount, setSolAmount] = useState(0.05);
@@ -121,24 +121,8 @@ function Scroller() {
     return (
 
         <>
-            <ToastContainer />
-            <div className="row mt-0 mt-md-3 p-0">
-
-                <div className="col-12 d-flex justify-content-center">
-                    <span className="line    ">
-                        <h2>
-
-                            <img src="/assets/catHead.svg" className="img-fluid" alt="cat" />
-                            <div className="col primeSlotText">
-                                <p className='m-0'>Primes slot</p>
-                                <p className="pinkTextColor">Spin and win your prize</p>
-                            </div>
-
-
-                        </h2>
-                    </span>
-                </div>
-            </div>
+            <ToastContainer  position='bottom-right' />
+         
 
             <div className="slots">
                 <div className="row d-flex justify-content-center">
@@ -231,6 +215,7 @@ function Scroller() {
                     })}
 
                 </div>
+                
                 <div className="col text-center">
 
                     {publicKey ?
