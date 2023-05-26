@@ -4,7 +4,7 @@ import { useWallet } from '@solana/wallet-adapter-react'
 import { ToastContainer, toast } from 'react-toastify';
 
 function Scroller() {
-    const { publicKey ,disconnect} = useWallet()
+    const { publicKey, disconnect } = useWallet()
 
     const [div, setDiv] = useState<number[]>([])
     const [solAmount, setSolAmount] = useState(0.05);
@@ -15,7 +15,7 @@ function Scroller() {
     const [fruit5, setFruit5] = useState("swords");
     const [rolling, setRolling] = useState(false);
     let slotRef = [useRef<HTMLInputElement>(null), useRef<HTMLInputElement>(null), useRef<HTMLInputElement>(null), useRef<HTMLInputElement>(null), useRef<HTMLInputElement>(null)];
-    const fruits = ["diamond", "mouse", "remote", "solCoin", "swords","diamond", "mouse", "remote", "solCoin", "swords","diamond", "mouse", "remote", "solCoin", "swords","diamond", "mouse", "remote", "solCoin", "swords","diamond", "mouse", "remote", "solCoin", "swords"]
+    const fruits = ["diamond", "mouse", "remote", "solCoin", "swords", "diamond", "mouse", "remote", "solCoin", "swords", "diamond", "mouse", "remote", "solCoin", "swords", "diamond", "mouse", "remote", "solCoin", "swords", "diamond", "mouse", "remote", "solCoin", "swords", "diamond", "mouse", "remote", "solCoin", "swords", "diamond", "mouse", "remote", "solCoin", "swords", "diamond", "mouse", "remote", "solCoin", "swords", "diamond", "mouse", "remote", "solCoin", "swords", "diamond", "mouse", "remote", "solCoin", "swords","diamond", "mouse", "remote", "solCoin", "swords","diamond", "mouse", "remote", "solCoin", "swords","diamond", "mouse", "remote", "solCoin", "swords","diamond", "mouse", "remote", "solCoin", "swords","diamond", "mouse", "remote", "solCoin", "swords"]
     const [fade, setFade] = useState(false);
 
     const amount = [
@@ -101,16 +101,16 @@ function Scroller() {
             }
         }
         if (win) {
-            setTimeout(()=>{
+            setTimeout(() => {
 
                 toast.success('You win!')
-            },1500)
+            }, 1500)
         }
         else {
-            setTimeout(()=>{
+            setTimeout(() => {
 
                 toast.error('You loss!')
-            },1500)
+            }, 1500)
         }
         return counts;
 
@@ -121,8 +121,8 @@ function Scroller() {
     return (
 
         <>
-            <ToastContainer  position='bottom-right' />
-         
+            <ToastContainer position='bottom-right' />
+
 
             <div className="slots">
                 <div className="row d-flex justify-content-center">
@@ -215,7 +215,7 @@ function Scroller() {
                     })}
 
                 </div>
-                
+
                 <div className="col text-center">
 
                     {publicKey ?
