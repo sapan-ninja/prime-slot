@@ -1,15 +1,65 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './css/communityfund.module.css'
 import useWindowSize from './utility/GetWindowSize'
 import { useWallet } from '@solana/wallet-adapter-react'
+import { useCountdown } from './Time/useCountDown'
 
 export default function CommunityFunds() {
     const { publicKey } = useWallet()
+    const [endTime, setEndTime] = useState(1686109046);
+    const [removeTime, setRemoveTime] = useState(true);
+    const [hour, setHours] = useState('');
+    const [min, setMin] = useState('');
+    const [sec, setSec] = useState('');
+    const [days, setDays] = useState('');
 
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            if (Math.floor(new Date().getTime() / 1000.0) > 1686109046) {
+                setEndTime(0);
+
+                setRemoveTime(false);
+            } else {
+                setEndTime((seconds) => seconds - 1);
+            }
+            handleHours(endTime)
+        }, 1000);
+        return () => clearInterval(interval);
+    }, []);
     const size = useWindowSize()
-    console.log("🚀 ~ CommunityFunds ~ size", size)
+
+    const handleHours = (val: any) => {
+        var startDate = new Date();
+        // console.log("syart date", startDate.getTime());
+        var seconds = (val * 1000 - startDate.getTime()) / 1000;
+
+        seconds = Number(seconds);
+        var d = Math.floor(seconds / (3600 * 24));
+        var h = Math.floor((seconds % (3600 * 24)) / 3600);
+        var m = Math.floor((seconds % 3600) / 60);
+        var s = Math.floor(seconds % 60);
+
+        var dDisplay = d > 0 ? d : '';
+        var hDisplay = h > 0 ? h  : '';
+        var mDisplay = m > 0 ? m : '';
+        var sDisplay = s > 0 ? s : '';
+        // const timeHtml = dDisplay + hDisplay + mDisplay + sDisplay;
+        setDays(dDisplay.toString())
+        setHours(hDisplay.toString())
+        setMin(mDisplay.toString())
+        setSec(sDisplay.toString())
+        // console.log("🚀 ~ handleHours ~ timeHtml", timeHtml)
+
+        let da1 = `<div className='col-2 px-5 mx-5 border border-end '>${d} </br> <span> ${dDisplay}</span> </div>`;
+
+        // let da2=`<div className='col-2 px-5 mx-5'>${h} </div>`
+        // let da3=`<div className='col-2 text-success px-5 mx-5'>${m} </div>`
+     
+    };
     return (
         <>
+         
             {size?.width > 600 ?
                 <div className="container-fluid p-0">
 
@@ -37,7 +87,7 @@ export default function CommunityFunds() {
 
                                     <div className="col">
                                         <div className="col-12 ">
-                                            <h5 className={styles.time}>24</h5>
+                                            <h5 className={styles.time}>{parseInt (days)>0?days:'0'}</h5>
                                         </div>
                                         <div className="col-12">
                                             <h5 className={styles.timeFormat} >DAY</h5>
@@ -54,7 +104,7 @@ export default function CommunityFunds() {
                                     </div>
                                     <div className="col">
                                         <div className="col-12 ">
-                                            <h5 className={styles.time}>13</h5>
+                                            <h5 className={styles.time}>{hour}</h5>
                                         </div>
                                         <div className="col-12">
                                             <p className={styles.timeFormat} >HOUR</p>
@@ -70,7 +120,7 @@ export default function CommunityFunds() {
                                     </div>
                                     <div className="col">
                                         <div className="col-12 ">
-                                            <h5 className={styles.time}>08</h5>
+                                            <h5 className={styles.time}>{min}</h5>
                                         </div>
                                         <div className="col-12">
                                             <p className={styles.timeFormat} >MIN</p>
@@ -86,7 +136,7 @@ export default function CommunityFunds() {
                                     </div>
                                     <div className="col">
                                         <div className="col-12 ">
-                                            <h5 className={styles.time}>02</h5>
+                                            <h5 className={styles.time}>{sec}</h5>
                                         </div>
                                         <div className="col-12">
                                             <p className={styles.timeFormat} >SEC</p>
